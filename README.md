@@ -37,5 +37,5 @@ plt.show()
 ```
 
 
-Other examples are available in the form of Jupyter notebooks. An example of Jupyter notebook used to model 10nm SiO2 on Si:
+Other examples are available in the form of Jupyter notebooks. An example of Jupyter notebook used to model 1800nm SiO2 on Si (ellipsometry) and Glass (T and R) :
 ![Alt text](https://raw.githubusercontent.com/Quikim/Optic_lab/master/snapshot.png)
