@@ -23,7 +23,7 @@ nkSiO2=tre.Lorentz(12,0,12,E)
 tre.clearlayer() #remove any layer to avoid append this on top 
 tre.my_layer(nkSiO2,100) #Adding a layer of SiO2 of 100 nm 
 
-#Setting the SiO2 dispersion law as a Tauc-Lorentz oscillator of epsinf=1.15 F=122eV C=2.54eV, En0=3.45eV, Eg=1.12
+#Setting the Si dispersion law as a Tauc-Lorentz oscillator of epsinf=1.15 F=122eV C=2.54eV, En0=3.45eV, Eg=1.12
 nkSi=tre.TLorentz(1.15,122,2.54,3.45,1.2,E)
 
 #Setting the substrate to be 1mm of Si and the incidence angle of 65°
