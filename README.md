@@ -3,6 +3,7 @@ A set of tools made using matrix transfert method for ellipsometry and spectroph
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Quikim/Optic_lab/master)
+[![DOI](https://www.zenodo.org/badge/DOI/10.5281/zenodo.3576393.svg)](https://doi.org/10.5281/zenodo.3576393)
 
 # REQUIREMENTS
 -Numpy
