@@ -46,7 +46,7 @@ def TLorentz(epsinf,F,C,E0,Eg,E):
     eps=reps+1j*ieps
     return eps
 
-#Function to calculate the anisotropy of permettiviy matrix 
+#Function to calculate the anisotropic permittiviy matrix given Euler angles 
 def anisotrope(eps,phi_E=math.radians(0),theta_E=math.radians(0),psi_E=math.radians(0)):
     #----Definition of the Euler angles----#
     c1=np.cos(phi_E)
@@ -61,7 +61,7 @@ def anisotrope(eps,phi_E=math.radians(0),theta_E=math.radians(0),psi_E=math.radi
     epsp=np.array(list(map(epsp_f,eps)))
     return epsp
 
-#Bruggeman model that takes permittivity epsm, epsp as matrix material and inclusion material with a volumic fraction f as inputs and gives the effective permittivity 3x3 matrix as output
+#Bruggeman model that takes permittivity epsm, epsp as array of material and inclusion material with a volumic fraction f as inputs and gives the effective permittivity 3x3 matrix as output
 #By default the Bruggeman is set in an isotropic configuration but can also be use for anisotropic inclusion
 # The parameters dep_c represents the value of the depolarizing factor Lc. La and Lb are calculated from the depolarizing factor Lc and from dep_ab_split: for a split value of 0.5 La and Lc are equals
 def Bruggeman(epsm,epsp,f,dep_ab_split=0.5,dep_c=1/3):
@@ -98,7 +98,7 @@ class substrate:
         self.d=d
         self.theta_i=theta_i
 
-#Definition of the global variable layer. This function will stack every new layer on top of existing ones
+#Definition of the global variable layer. This function will stack every new layer on top of existing ones starting from substrate to external medium
 def my_layer(eps,d,anis=False):
     global my_layers
     my_layers.append(layer(eps,d,anis))
@@ -271,7 +271,7 @@ def psidel():
     drs= [J[i][1,1] for i in range(nb)]
     delta=np.asarray([np.angle(drp[i]/drs[i], deg=False) for i in range(nb)])
     psi=np.arctan2(prp, prs)
-    return {'psi':np.tan(psi),'delta':-np.cos(delta)}
+    return {'psi':psi,'delta':delta}
 
 #function to calculte the partial transfert matrix contribution from the beam reflected on the backside of the substrate 
 def Tpb(layer):
@@ -515,4 +515,4 @@ def psidelb():
     def psi_f(prp,prp2,prp3,prs,prs2,prs3):
         return np.arctan2(np.sqrt(prp**2+prp2**2+prp3**2), np.sqrt(prs**2+prs2**2+prs3**2))
     psi=np.array(list(map(psi_f,prp,prp2,prp3,prs,prs2,prs3)))
-    return {'psi':np.tan(psi),'delta':delta}
+    return {'psi':psi,'delta':np.arccos(delta)}
