@@ -38,4 +38,4 @@ plt.show()
 
 
 Other examples are available in the form of Jupyter notebooks. An example of Jupyter notebook used to model 10nm SiO2 on Si:
-![Alt text](https://raw.githubusercontent.com/Quikim/Optic_lab/master/Snapshot.png)
+![Alt text](https://raw.githubusercontent.com/Quikim/Optic_lab/master/snapshot.png)
