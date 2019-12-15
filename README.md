@@ -13,7 +13,6 @@ A set of tools made using matrix transfert method for ellipsometry and spectroph
 import T_R_elli as tre
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 #defining the wavelength of interest
 lam,E=tre.wavelength(300e-9,1000e-9,200)
