@@ -9,6 +9,7 @@ A set of tools made using matrix transfert method for ellipsometry and spectroph
 -Numpy
 
 # EXAMPLE
+Below is introduced a code to quickly simulate the ellipsometric angle psi and delta of a SiO2 layer of 100nm on a Si substrate 
 ```
 import T_R_elli as tre
 import numpy as np
