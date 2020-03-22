@@ -19,16 +19,16 @@ import matplotlib.pyplot as plt
 lam,E=tre.wavelength(300e-9,1000e-9,200)
 
 #Setting the SiO2 dispersion law as a Lorentz oscillator of F=12eV Gamma=0eV and En0=12eV
-nkSiO2=tre.Lorentz(12,0,12,E)
+eps_SiO2=tre.Lorentz(12,0,12,E)
 
 tre.clearlayer() #remove any layer to avoid append this on top 
-tre.my_layer(nkSiO2,100) #Adding a layer of SiO2 of 100 nm 
+tre.my_layer(eps_SiO2,100) #Adding a layer of SiO2 of 100 nm 
 
 #Setting the Si dispersion law as a Tauc-Lorentz oscillator of epsinf=1.15 F=122eV C=2.54eV, En0=3.45eV, Eg=1.12
-nkSi=tre.TLorentz(1.15,122,2.54,3.45,1.2,E)
-
+eps_Si=tre.TLorentz(1.15,122,2.54,3.45,1.2,E)
+nk_Si=tre.n(eps_Si)+1j*tre.k(eps_Si)
 #Setting the substrate to be 1mm of Si and the incidence angle of 65°
-tre.my_sub(nkSi,1e-3,65*np.pi/180)
+tre.my_sub(nk_Si,1e-3,65*np.pi/180)
 
 #Plotting the result
 plt.plot(lam*1e9,tre.psidel()['psi']*180/np.pi,lam*1e9,tre.psidel()['delta']*180/np.pi)
